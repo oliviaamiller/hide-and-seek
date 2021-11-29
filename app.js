@@ -28,8 +28,10 @@ function getRandomItem(arr) {
 
 function handleGuess(userGuess, correctSpot) {
     // should reset the styles
+    resetStyles();
 
     // then increment the guesses
+    totalGuesses++;
 
     // then grab the appropriate container element for the correct guess from the DOM
 
@@ -38,10 +40,16 @@ function handleGuess(userGuess, correctSpot) {
     // then if the user guess is correct, increment the correct guesses
 
     // update the DOM to show this change to the user (including the losses, not tracked directly in state)
+    winsEl.textContent = wins;
+    lossesEl.textContent = total - wins;
+    totalEl.textContent = total;
 }
 
 function resetStyles() {
     // should remove the face class from all containers
+    shedContainer.src = './assets/shed.png';
+    treeContainer.src = './assets/tree.webp';
+    boulderContainer.src = './assets/boulder.png';
 }
 
 shedButton.addEventListener('click', () => {
